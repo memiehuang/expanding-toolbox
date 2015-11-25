@@ -1,0 +1,28 @@
+<!--<link rel="icon" href="img/page-icon.png"> make icon of something relevant-->
+
+<section ng-controller="ReviewController" id="review">
+    <p ng-if="success" class="alert alert-success">Thank you for signing up!</p>
+    <h2>Make sure you review that this is correct before submitting your reimbursement</h2>
+    <h3>You must hand me the receipt at the next exec meeting before receiving your reimbursement.</h3>
+
+    <div class="review-info">
+        <ul>
+            <li ng-model="review" ng-list>
+                <h4>Name: </h4> {{review.name}}
+                <h4>Position</h4> {{review.position}}
+                <h4>Purchase Date: </h4> {{review.date}}
+                <h4>Amount: </h4> ${{review.amount}}
+                <h4>Vendor: </h4> {{review.vendor}}
+                <h4>Purpose: </h4> {{review.purpose}}
+            </li>
+        </ul>
+    </div>
+
+    <button id="submit-form" type="submit" class="btn btn-primary"
+            ng-click="updateBudget()"
+            ui-sref="budget"
+            ng-click="views/budget.html">
+        Submit Form
+    </button>
+
+</section>

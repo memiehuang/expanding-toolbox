@@ -1,7 +1,29 @@
-<section ng-controller="BudgetController">
-    <button id="reimburse" type="submit" class="btn btn-primary"
-            ui-sref="reimbursement"
-            ng-clic="views/reimbursement.html">
-        Confirm your order
-    </button>
+<section class="budget" ng-controller="BudgetController">
+    <div class="container">
+        <p ng-if="success" class="alert alert-success">Thank you for signing up!</p>
+        <h1>University of Washington Panhellenic Officer Budgets</h1>
+        <h4>The amounts below represent the budget for each officer for the 2015-2016 school year.</h4>
+        <div class="row">
+            <div class="col-md-6 budget-chart">
+                <canvas id="doughnut" class="chart chart-doughnut"
+                        chart-data="budget" chart-labels="officers">
+                </canvas>
+            </div>
+
+            <div class="col-md-6 review-info">
+                <ul>
+                    <li ng-repeat="officer in officerBudgets">
+                        <h4>{{officer.name}}: ${{officer.budget}}</h4>
+                    </li>
+                </ul>
+                <button id="reimburse" type="submit" class="btn btn-primary"
+                        ui-sref="reimbursement"
+                        ng-click="views/reimbursement.html">
+                    Submit a Reimbursement Form!
+                </button>
+            </div>
+
+        </div>
+    </div>
+
 </section>

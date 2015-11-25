@@ -1,42 +1,92 @@
-<section ng-controller="ReimbursementController" class="container">
-    <p ng-if="success" class="alert alert-success">Thank you for filling this out!</p>
-    <form name="reiumbursementForm" novalidate ng-submit="Submit()">
-        <div class="reiumbursement">
+<!--<link rel="icon" href="img/page-icon.png"> make icon of something relevant-->
+<section ng-controller="ReimbursementController" class="reimbursement">
+    <form name="reimbursementForm" novalidate>
+        <div class="container reimbursement">
             <h1>Completely fill out this form to get reimbursed</h1>
 
             <div class="form-group">
                 <label for="nameInp">Name: </label>
                 <p class="validation-error name-error"
-                   ng-if="reimbursementForm.nameInp.$touched && reimbursementForm.nameInp.$error.required"></p>
+                   ng-if="reimbursementForm.nameInp.$touched && reimbursementForm.nameInp.$error.required">
+                    You need to fill out a name!
+                </p>
 
                 <input id="nameInp" name="nameInp" type="text" class="form-control"
                        ng-model="user.name" required autofocus />
             </div>
 
+            <div class="position">
+                <label for="positionInp">What's your position? </label>
+                <p class="validation-error position-error"
+                   ng-if="reimbursementForm.positionInp.$touched && reimbursementForm.positionInp.$error.required">
+                    You need to choose a position!
+                </p>
+                <select id="positionInp" ng-model="user.position" ng-options="position for position in positions" required></select>
+            </div>
+
             <div class="form-group">
-                <label for="amountInp">Amount: </label>
+                <label for="dateInp">Purchase Date (mm/dd/yy): </label>
+                <p class="validation-error date-error"
+                   ng-if="reimbursementForm.dateInp.$touched && reimbursementForm.dateInp.$error.required">
+                    You need to fill out a date of purchase!
+                </p>
+
+                <p class="validation-error date-error"
+                   ng-if="reimbursementForm.dateInp.$touched && reimbursementForm.dateInp.$error.pattern">
+                    You must enter the date in this format (05/25/15)
+                </p>
+
+                <input id="dateInp" name="dateInp" type="text" pattern="[0-9][0-9][/][0-9][0-9][/][0-9][0-9]" class="form-control"
+                       ng-model="user.date" required />
+            </div>
+
+            <div class="form-group">
+                <label for="amountInp">Amount (must provide dollar and cent values): </label>
                 <p class="validation-error amount-error"
-                   ng-if="reimbursementForm.amountInp.$touched && reimbursementForm.amountInp.$error.required"></p>
+                   ng-if="reimbursementForm.amountInp.$touched && reimbursementForm.amountInp.$error.required">
+                    You must enter a reimbursement amount!
+                </p>
 
                 <p class="validation-error amount-error"
-                   ng-if="reimbursementForm.amountInp.$touched && reimbursementForm.amountInp.$error.pattern"></p>
+                   ng-if="reimbursementForm.amountInp.$touched && reimbursementForm.amountInp.$error.pattern">
+                    You must enter a reimbursement amount in the correct format (Ex. 45.00)!
+                </p>
 
-                <input id="amountInp" name="amountInp" type="number" class="form-control" pattern="[0-9]+"
+                <input id="amountInp" name="amountInp" type="number" class="form-control" pattern="[0-9]+[.][0-9][0-9]"
                        ng-model="user.amount" required />
             </div>
 
             <div class="form-group">
                 <label for="vendorInp">Vendor: </label>
-                <p class="validation-error amount-error"
-                   ng-if="reimbursementForm.vendorInp.$touched && reimbursementForm.vendorInp.$error.required"></p>
+                <p class="validation-error vendor-error"
+                   ng-if="reimbursementForm.vendorInp.$touched && reimbursementForm.vendorInp.$error.required">
+                    You must fill out the vendor where you purchased the items!
+                </p>
 
                 <input id="vendorInp" name="vendorInp" type="text" class="form-control"
                        ng-model="user.vendor" required />
             </div>
 
+            <div class="form-group">
+                <label for="purposeInp">Purpose of purchase (Specify exact event): </label>
+                <p class="validation-error purpose-error"
+                   ng-if="reimbursementForm.vendorInp.$touched && reimbursementForm.vendorInp.$error.required">
+                    You must fill out the purpose for the purchase!
+                </p>
 
+                <input id="purposeInp" name="purposeInp" type="text" class="form-control"
+                       ng-model="user.purpose" required />
 
+            </div>
+            <div class="form-group">
+                <button type=submit class="btn btn-primary btn-large submit"
+                        ng-disabled="reimbursementForm.$invalid"
+                        ng-click="checkReview()"
+                        ui-sref="review"
+                        ng-click="views/review.html">
+                    Review your reimbursement form
+                </button>
+            </div>
         </div>
-
     </form>
 </section>

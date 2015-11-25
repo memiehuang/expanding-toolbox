@@ -22,6 +22,8 @@
     "grunt-contrib-watch": "^0.6.1"
   },
   "dependencies": {
-    "validate.js": "^0.9.0"
+    "angular-chart.js": "^0.8.6",
+    "chart.js": "^1.0.2",
+    "moment": "^2.10.6"
   }
 }

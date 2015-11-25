@@ -20,5 +20,21 @@ My example site uses a doughnut chart to represent the budgets of offices on a l
 
 How should someone run your example? If you have hosted version of your example, provide a link to it, but also tell us anything we need to know in order to get the example working on our own machines. If your example requires the installation of tools or frameworks, explain how to do the install and provide links to any download sites. If your example requires the execution of commands in the terminal, note those here. If it requires a local web server in order to work, note that. If it requires an account on some web service and corresponding keys, provide a link to the service and explain how to configure the keys.
 
+The link to my website is here: http://students.washington.edu/memieh/info343/expanding-toolbox/#/budget
+
+There isn't anything required on the user side to run the example. The steps to complete view the website are as follows:
+
+1.Click the "Submit a Reimbursement Form" button.
+2.Fill out the form as it requests of you. You may choose to be any of the officers.
+3.Click the "Review your reimbursement form" button.
+4.Review the information and and click submit.
+5.View how the amount adjusted the chart.
 
 Where should a web developer go to learn more about this technology? Include links to getting started guides, tutorials, articles, or other examples that you found.
+
+ChartJS: http://www.chartjs.org/
+Angular Chart JS: http://jtblin.github.io/angular-chart.js/
+Step-by-step example: http://www.sitepoint.com/fancy-responsive-charts-with-chart-js/
+JSFiddle example to try a doughnut chart: http://jsfiddle.net/achudars/NXPhL/
+
+There are also a bunch of questions answered on Stack Overflow that are extremely helpful!

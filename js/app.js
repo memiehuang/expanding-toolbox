@@ -46,31 +46,28 @@ angular.module('BudgetApp', ['ui.router', 'chart.js'])
 
         if($scope.officerBudgets == undefined){
             $scope.officerBudgets = [
-                {name: "President", budget: 1000, color: '#FF9999'},
-                {name: "VP of Operations", budget: 1200,color: '#ffb366' } ,
-                {name: "VP of Finance", budget: 1300, color: '#ffff4d'},
-                {name: "VP of Community Relations", budget:5000, color: '#aaff80'},
-                {name: "VP of Recruitment Management", budget: 3000, color: '#99ffff'},
-                {name: "VP of Recruitment Development", budget: 7000, color: '#3385ff'},
-                {name: "VP of Outreach and Advancement", budget: 1500, color: '#7070db'},
-                {name: "VP of Public Relations", budget: 2500, color: '#7a00cc'},
-                {name: "VP of Membership Development", budget: 7000, color: '#993399'},
-                {name: "VP of Administration", budget: 1000, color: '#cc0099'}
+                {name: "President", budget: 1000},
+                {name: "VP of Operations", budget: 1200} ,
+                {name: "VP of Finance", budget: 1300},
+                {name: "VP of Community Relations", budget:5000},
+                {name: "VP of Recruitment Management", budget: 3000},
+                {name: "VP of Recruitment Development", budget: 7000},
+                {name: "VP of Outreach and Advancement", budget: 1500},
+                {name: "VP of Public Relations", budget: 2500},
+                {name: "VP of Membership Development", budget: 7000},
+                {name: "VP of Administration", budget: 1000}
             ]
             localStorage.setItem("officerBudgets", angular.toJson($scope.officerBudgets));
         }
 
         $scope.officers = [];
         $scope.budget = [];
+        $scope.colors = ['#FF9999', '#ffb366', '#ffff4d', '#aaff80', '#99ffff', '#3385ff', '#7070db', '#7a00cc', '#993399', '#cc0099']
 
         var idx;
         for(idx = 0; idx < $scope.officerBudgets.length; idx++){
             $scope.officers.push($scope.officerBudgets[idx].name);
-            $scope.budget = $scope.budget.concat([
-                {value: $scope.officerBudgets[idx].budget,
-                 color: $scope.officerBudgets[idx].color}
-            ])
-            console.log($scope.budget);
+            $scope.budget.push($scope.officerBudgets[idx].budget);
         }
 
 
